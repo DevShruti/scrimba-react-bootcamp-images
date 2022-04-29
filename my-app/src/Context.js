@@ -5,6 +5,7 @@ const url = "https://raw.githubusercontent.com/bobziroll/scrimba-react-bootcamp-
 
 function ContextProvider({children}) {
     const [allPhotos, setAllPhotos] = useState([])
+    const [cartItems, setCartItems] = useState([])
     
     useEffect(() => {
         fetch(url)
@@ -23,8 +24,12 @@ function ContextProvider({children}) {
         setAllPhotos(updatedArr)
     }
     
+    function addToCart(newItem) {
+        setCartItems(prevItems => [...prevItems, newItem])
+    }
+
     return (
-        <Context.Provider value={{allPhotos}}>
+        <Context.Provider value={{allPhotos, toggleFavorite, addToCart}}>
             {children}
         </Context.Provider>
     )

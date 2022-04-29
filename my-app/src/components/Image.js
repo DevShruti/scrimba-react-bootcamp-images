@@ -4,7 +4,7 @@ import PropTypes from "prop-types"
 
 function Image({className , img}) {
     const [hovered, setHovered] = useState(false)
-    const {toggleFavorite} = useContext(Context)
+    const {toggleFavorite, addToCart} = useContext(Context)
     
 
     function heartIcon() {
